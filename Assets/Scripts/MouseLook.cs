@@ -19,14 +19,23 @@ public class MouseLook : MonoBehaviour
 	public float turnY;
     public float sensitivity=2;
 
+	
+	void Start()
+    {
+		Cursor.lockState = CursorLockMode.Locked;
+		
+	}
     private void Update()
 	{
 
 		turnX += Input.GetAxis("Mouse X") * sensitivity;
 		turnY += Input.GetAxis("Mouse Y") *-1* sensitivity;
+		
 		transform.localEulerAngles = new Vector3(turnY, turnX, 0.0f);
 
 
-		//player.Rotate(0, turnX, 0.0f, Space.World);
-	}
+		
+      
+       
+    }
 }

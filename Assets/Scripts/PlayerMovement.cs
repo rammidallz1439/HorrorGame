@@ -13,14 +13,22 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
     Vector3 movement;
+
+   public Animator anim;
+    private float sensitivity=2;
+    public GameObject _camera;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
     {
         MyInput();
+        
+        transform.Rotate(0, _camera.transform.rotation.x, 0.0f, Space.World);
     }
     void MyInput()
     {
@@ -37,5 +45,13 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         rb.velocity = movement * speed;
+        if (horizontal > 0f)
+        {
+            anim.SetInteger("State", 1);
+        }
+        else
+        {
+            anim.SetInteger("State", 0);
+        }
     }
 }
