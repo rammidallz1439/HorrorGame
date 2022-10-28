@@ -7,7 +7,7 @@ public class MouseLook : MonoBehaviour
 	
 
 	[SerializeField]
-	private Transform myCamera;
+	private Transform player;
 
 	[SerializeField]
 	private float xMin;
@@ -15,20 +15,17 @@ public class MouseLook : MonoBehaviour
 	[SerializeField]
 	private float xMax;
 
-	private Vector3 _eulerAngles;
-	public float sensitivity;
+	public Vector2 turn;
+    public float sensitivity=2;
 
-	private void Update()
+    private void Update()
 	{
 
-		float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-		float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+		turn.x = Input.GetAxisRaw("Mouse X") * sensitivity;
+		turn.y = Input.GetAxisRaw("Mouse Y") * sensitivity;
+		transform.localRotation = Quaternion.Euler(-turn.y,turn.x,0.0f);
 
 
-		_eulerAngles.x = Mathf.Clamp(_eulerAngles.x, xMin, xMax);
-
-		myCamera.localEulerAngles = _eulerAngles;
-
-		transform.Rotate(0.0f, mouseX, 0.0f, Space.World);
+		player.Rotate(0, turn.x, 0.0f, Space.World);
 	}
 }
