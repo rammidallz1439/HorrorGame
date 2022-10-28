@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,52 +5,33 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    Rigidbody rb;
+    public CharacterController controller;
 
-    public float speed;
+    public float speed = 12f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 3f;
 
-    float horizontal;
-    float vertical;
-    Vector3 movement;
+  
 
-   public Animator anim;
-    private float sensitivity=2;
-    public GameObject _camera;
+    Vector3 velocity;
+  
 
-    private void Start()
+ 
+    // Update is called once per frame
+    void Update()
     {
-        rb = GetComponent<Rigidbody>();
-        
-    }
+      
 
-    private void Update()
-    {
-        MyInput();
-        
-        transform.Rotate(0, _camera.transform.rotation.x, 0.0f, Space.World);
-    }
-    void MyInput()
-    {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-        movement = transform.forward * vertical + transform.right * horizontal;
-    }
 
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-    private void MovePlayer()
-    {
-        rb.velocity = movement * speed;
-        if (horizontal > 0f)
-        {
-            anim.SetInteger("State", 1);
-        }
-        else
-        {
-            anim.SetInteger("State", 0);
-        }
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * speed * Time.deltaTime);
+
+
+        controller.Move(velocity * Time.deltaTime);
+
     }
 }

@@ -4,38 +4,31 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-	
+    public float mouseSensitivity = 100f;
 
-	[SerializeField]
-	private Transform player;
+    public Transform playerBody;
 
-	[SerializeField]
-	private float xMin;
+    float xRotation = 0f;
 
-	[SerializeField]
-	private float xMax;
 
-	public float  turnX;
-	public float turnY;
-    public float sensitivity=2;
-
-	
-	void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-		Cursor.lockState = CursorLockMode.Locked;
-		
-	}
-    private void Update()
-	{
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
-		turnX += Input.GetAxis("Mouse X") * sensitivity;
-		turnY += Input.GetAxis("Mouse Y") *-1* sensitivity;
-		
-		transform.localEulerAngles = new Vector3(turnY, turnX, 0.0f);
+    // Update is called once per frame
+    void Update()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -45f, 45f);
 
-		
-      
-       
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        playerBody.Rotate(Vector3.up * mouseX);
+
     }
 }
