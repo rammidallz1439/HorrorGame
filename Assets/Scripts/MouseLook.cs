@@ -15,17 +15,18 @@ public class MouseLook : MonoBehaviour
 	[SerializeField]
 	private float xMax;
 
-	public Vector2 turn;
+	public float  turnX;
+	public float turnY;
     public float sensitivity=2;
 
     private void Update()
 	{
 
-		turn.x = Input.GetAxisRaw("Mouse X") * sensitivity;
-		turn.y = Input.GetAxisRaw("Mouse Y") * sensitivity;
-		transform.localRotation = Quaternion.Euler(-turn.y,turn.x,0.0f);
+		turnX += Input.GetAxis("Mouse X") * sensitivity;
+		turnY += Input.GetAxis("Mouse Y") *-1* sensitivity;
+		transform.localEulerAngles = new Vector3(turnY, turnX, 0.0f);
 
 
-		player.Rotate(0, turn.x, 0.0f, Space.World);
+		//player.Rotate(0, turnX, 0.0f, Space.World);
 	}
 }
