@@ -11,16 +11,21 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
-  
+
 
     Vector3 velocity;
-  
 
- 
+    Animator _anim;
+
+    private void Start()
+    {
+        _anim = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-      
+
 
 
         float x = Input.GetAxis("Horizontal");
@@ -32,6 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
 
         controller.Move(velocity * Time.deltaTime);
-
+       
     }
 }
