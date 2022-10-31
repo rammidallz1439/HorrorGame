@@ -5,32 +5,38 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public CharacterController controller;
 
-    public float speed = 12f;
- 
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private FixedJoystick _joystick;
+    [SerializeField] private Animator _anim;
+    [SerializeField] private float speed = 6f;
 
-  
 
-    Vector3 velocity;
-  
 
- 
-    // Update is called once per frame
-    void Update()
+
+
+    private void FixedUpdate()
     {
-      
 
+        //uses joystick when in android build
+#if UNITY_STANDALONE ||PLATFORM_STANDALONE
+        _joystick.gameObject.SetActive(true);
+        _rb.velocity = new Vector3(_joystick.Vertical * speed, _rb.velocity.y,_joystick.Horizontal * speed);
+        if (_joystick.Horizontal!=0||_joystick.Vertical!=0)
+        {
+            transform.localRotation = Quaternion.LookRotation(_rb.velocity);
+        }
+#endif
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        //uses KeyBoard when in windows build
+#if PLATFORM_STANDALONE_WIN || UNITY_STANDALONE_WIN
+        _joystick.gameObject.SetActive(false);
 
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
-
-
-        controller.Move(velocity * Time.deltaTime);
-
+        float horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        transform.Translate(horizontal, 0f, vertical);
+#endif
     }
+
+ 
 }
