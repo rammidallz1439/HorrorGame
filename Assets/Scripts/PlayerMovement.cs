@@ -12,9 +12,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 6f;
 
 
-
-
-
     private void FixedUpdate()
     {
 
@@ -24,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector3(_joystick.Vertical * speed, _rb.velocity.y,_joystick.Horizontal * speed);
         if (_joystick.Horizontal!=0||_joystick.Vertical!=0)
         {
-            transform.localRotation = Quaternion.LookRotation(_rb.velocity);
+            //transform.localRotation = Quaternion.LookRotation(_rb.velocity);
+          
         }
 #endif
 
@@ -32,9 +30,18 @@ public class PlayerMovement : MonoBehaviour
 #if PLATFORM_STANDALONE_WIN || UNITY_STANDALONE_WIN
         _joystick.gameObject.SetActive(false);
 
-        float horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        float vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float horizontal = Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime;
+        float vertical = Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime;
         transform.Translate(horizontal, 0f, vertical);
+        if (horizontal!=0||vertical!=0)
+        {
+            _anim.SetInteger("State", 1);
+        }
+        else
+        {
+            _anim.SetInteger("State", 0);
+        }
+        
 #endif
     }
 
