@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float attackDist;
 
     Vector3 initialRotation;
+   
     private void Start()
     {
         initialRotation = transform.eulerAngles;
@@ -18,6 +19,7 @@ public class EnemyManager : MonoBehaviour
         float dist = Vector3.Distance(target.position, transform.position);
         if (LightArea.instance._canAttackPlayer)
         {
+           
             transform.LookAt(target.position);
             transform.eulerAngles = new Vector3(initialRotation.x, transform.eulerAngles.y, initialRotation.z);
             Vector3 targetPos = target.position + Vector3.down;
@@ -25,9 +27,6 @@ public class EnemyManager : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position,targetPos,attackSpeed*Time.fixedDeltaTime);
             Debug.DrawLine(transform.position, targetPos);
         }
-        else if (!LightArea.instance._canAttackPlayer)
-        {
-            transform.position = transform.position;
-        }
+      
     }
 }
