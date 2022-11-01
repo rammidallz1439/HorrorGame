@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 5.3
-  player: {fileID: 0}
+  player: {fileID: 83318727}
   _canAttackPlayer: 0
   _dia: 0
 --- !u!114 &423501983
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 5.3
-  player: {fileID: 0}
+  player: {fileID: 83318727}
   _canAttackPlayer: 0
   _dia: 0
 --- !u!114 &511040525
@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 5.3
-  player: {fileID: 0}
+  player: {fileID: 83318727}
   _canAttackPlayer: 0
   _dia: 0
 --- !u!114 &1810118856
@@ -2824,7 +2824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 5.3
-  player: {fileID: 0}
+  player: {fileID: 83318727}
   _canAttackPlayer: 0
   _dia: 0
 --- !u!1 &2087904471
