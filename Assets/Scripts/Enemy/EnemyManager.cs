@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     private void FixedUpdate()
     {
         float dist = Vector3.Distance(target.position, transform.position);
-        if (dist <= attackDist)
+        if (LightArea.instance._canAttackPlayer)
         {
             transform.LookAt(target.position);
             transform.eulerAngles = new Vector3(initialRotation.x, transform.eulerAngles.y, initialRotation.z);
