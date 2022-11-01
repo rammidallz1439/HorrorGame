@@ -10,7 +10,7 @@ public class LightArea : MonoBehaviour
     private void Start()
     {
         instance = this;
-        
+        _canAttackPlayer = false;
         SphereCollider sc = gameObject.AddComponent(typeof(SphereCollider)) as SphereCollider;
         sc.isTrigger = true;
         sc.radius = _radius;
@@ -22,7 +22,8 @@ public class LightArea : MonoBehaviour
         Gizmos.DrawSphere(transform.position, _radius);
     }
 
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

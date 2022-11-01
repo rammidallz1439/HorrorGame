@@ -25,5 +25,9 @@ public class EnemyManager : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position,targetPos,attackSpeed*Time.fixedDeltaTime);
             Debug.DrawLine(transform.position, targetPos);
         }
+        else if (!LightArea.instance._canAttackPlayer)
+        {
+            transform.position = transform.position;
+        }
     }
 }
