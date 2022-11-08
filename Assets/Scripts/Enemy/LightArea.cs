@@ -9,35 +9,48 @@ public class LightArea : MonoBehaviour
     [SerializeField] private Transform player;
     public bool _canAttackPlayer;
     public float _dia;
-
+    public float dir;
     private void Start()
     {
         instance = this;
         _canAttackPlayer = false;
         _dia = _radius + _radius;
-       // SphereCollider sc = gameObject.AddComponent(typeof(SphereCollider)) as SphereCollider;
-        
+        SphereCollider sc = gameObject.AddComponent(typeof(SphereCollider)) as SphereCollider;
+        sc.radius = _radius;
+        sc.isTrigger = true;
+
     }
 
-    private void FixedUpdate()
+   /* private void FixedUpdate()
     {
-        float dir = Vector3.Distance(player.position, transform.position);
-        if (dir <=_radius)
-        {
-            _canAttackPlayer = false;
-        }
-        else
+        dir = Vector3.Distance(transform.position, player.position);
+        if (dir <= _radius)
         {
             _canAttackPlayer = true;
         }
-    }
+        else if (dir >= _radius)
+        {
+            _canAttackPlayer = false;
+        }
+    }*/
+    private void OnTriggerStay(Collider other)
+     {
+         if (other.gameObject.tag=="Player")
+         {
+             _canAttackPlayer = true;
+         }
+     }
+     private void OnTriggerExit(Collider other)
+     {
+         _canAttackPlayer = false;
+     }
     void OnDrawGizmosSelected()
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, _radius);
+        Gizmos.DrawSphere(transform.position+ new Vector3(0f,-2f,0f), _radius);
     }
 
-    
+
 
 }

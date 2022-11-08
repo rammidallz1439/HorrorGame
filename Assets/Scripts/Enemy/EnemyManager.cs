@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float attackSpeed;
-    [SerializeField] private float attackDist;
+ 
 
     Vector3 initialRotation;
    
