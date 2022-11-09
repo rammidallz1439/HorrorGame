@@ -4,45 +4,36 @@ using UnityEngine;
 
 public class LightArea : MonoBehaviour
 {
-    public static LightArea instance;
+    public static bool _canAttackPlayer;
     [SerializeField] private float _radius;
     [SerializeField] private Transform player;
-    public bool _canAttackPlayer;
-    public float _dia;
-    public float dir;
+
     private void Start()
     {
-        instance = this;
         _canAttackPlayer = false;
-        _dia = _radius + _radius;
         SphereCollider sc = gameObject.AddComponent(typeof(SphereCollider)) as SphereCollider;
         sc.radius = _radius;
         sc.isTrigger = true;
 
     }
 
-   /* private void FixedUpdate()
-    {
-        dir = Vector3.Distance(transform.position, player.position);
-        if (dir <= _radius)
-        {
-            _canAttackPlayer = true;
-        }
-        else if (dir >= _radius)
-        {
-            _canAttackPlayer = false;
-        }
-    }*/
+
     private void OnTriggerStay(Collider other)
      {
          if (other.gameObject.tag=="Player")
          {
-             _canAttackPlayer = true;
+             _canAttackPlayer = false;
          }
      }
      private void OnTriggerExit(Collider other)
      {
-         _canAttackPlayer = false;
+         _canAttackPlayer = true;
+        if (!EnemyGenrator._EM.IsGenerated)
+        {
+            EnemyGenrator._EM.GenerateEnemy();
+        }
+        
+        
      }
     void OnDrawGizmosSelected()
     {

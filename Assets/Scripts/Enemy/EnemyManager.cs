@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    private GameObject target;
     [SerializeField] private float attackSpeed;
  
 
@@ -13,19 +13,21 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         initialRotation = transform.eulerAngles;
+        target = GameObject.FindGameObjectWithTag("Player");
     }
     private void FixedUpdate()
     {
-        float dist = Vector3.Distance(target.position, transform.position);
-        if (LightArea.instance._canAttackPlayer)
+        if (LightArea._canAttackPlayer)
         {
            
-            transform.LookAt(target.position);
-            transform.eulerAngles = new Vector3(initialRotation.x, transform.eulerAngles.y, initialRotation.z);
-            Vector3 targetPos = target.position + Vector3.down;
-            targetPos.y = transform.position.y;
-            transform.position = Vector3.MoveTowards(transform.position,targetPos,attackSpeed*Time.fixedDeltaTime);
-            Debug.DrawLine(transform.position, targetPos);
+                transform.LookAt(target.transform.position);
+                transform.eulerAngles = new Vector3(initialRotation.x, transform.eulerAngles.y, initialRotation.z);
+                Vector3 targetPos = target.transform.position + Vector3.down;
+                targetPos.y = transform.position.y;
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, attackSpeed * Time.fixedDeltaTime);
+                Debug.DrawLine(transform.position, targetPos);
+         
+           
         }
       
     }
