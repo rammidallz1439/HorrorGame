@@ -1051,6 +1051,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5673922613351858982, guid: c47c3ded4365b434aa65c877b0818727,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 5673922613351858983, guid: c47c3ded4365b434aa65c877b0818727,
         type: 3}
       propertyPath: _joystick
