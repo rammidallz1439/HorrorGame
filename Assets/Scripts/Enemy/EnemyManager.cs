@@ -29,15 +29,16 @@ public class EnemyManager : MonoBehaviour
          
            
         }
+
+        if (!LightArea._canAttackPlayer)
+        {
+            if (EnemyGenrator._EM.IsGenerated)
+            {
+                Destroy(this.gameObject, 0.2f);
+            }
+        }
       
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "LightArea")
-        {
-            Destroy(this.gameObject,1f);
-            
-        }
-    }
+  
 }

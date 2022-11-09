@@ -8,7 +8,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class EnemyGenrator : MonoBehaviour
 {
     public static EnemyGenrator _EM;
-    [SerializeField] private AssetReference _enemyGhost;
+     public AssetReference _enemyGhost;
 
     private GameObject _player;
    public bool IsGenerated;
@@ -17,7 +17,7 @@ public class EnemyGenrator : MonoBehaviour
         _EM = this;
         _player = GameObject.FindGameObjectWithTag("Player");
     }
-
+   
     //loads Enemy using Addressables
     public void GenerateEnemy()
     {
@@ -33,12 +33,16 @@ public class EnemyGenrator : MonoBehaviour
                     asyncOperationHandle.Result.transform.position = pos;
                     IsGenerated = true;
                 }
+             
                 else
                 {
                     Debug.Log("Failed To Load");
                     IsGenerated = false;
+
                 }
             };
+
+          
 
         }
     }
