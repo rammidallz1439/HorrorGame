@@ -35,6 +35,7 @@ public class EnemyManager : MonoBehaviour
             if (EnemyGenrator._EM.IsGenerated)
             {
                 Destroy(this.gameObject, 0.2f);
+                EnemyGenrator._EM.IsGenerated = false;
             }
         }
       

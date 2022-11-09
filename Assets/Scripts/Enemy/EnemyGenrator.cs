@@ -10,18 +10,23 @@ public class EnemyGenrator : MonoBehaviour
     public static EnemyGenrator _EM;
      public AssetReference _enemyGhost;
 
-    private GameObject _player;
    public bool IsGenerated;
+  
     private void Start()
     {
         _EM = this;
-        _player = GameObject.FindGameObjectWithTag("Player");
+      
     }
-   
+
+    private void Update()
+    {
+
+     
+    }
     //loads Enemy using Addressables
     public void GenerateEnemy()
     {
-        Vector3 pos = new Vector3(UnityEngine.Random.Range(1, 3), 0, UnityEngine.Random.Range(1, 3));
+        Vector3 pos = new Vector3(UnityEngine.Random.Range(1, 2.5f), 0, UnityEngine.Random.Range(1, 2.5f));
         
         if (LightArea._canAttackPlayer)
         {

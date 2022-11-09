@@ -16,15 +16,19 @@ public class LightArea : MonoBehaviour
         sc.isTrigger = true;
 
     }
-
+  
 
     private void OnTriggerStay(Collider other)
      {
          if (other.gameObject.tag=="Player")
          {
              _canAttackPlayer = false;
-            
-         }
+            if (EnemyGenrator._EM.IsGenerated)
+            {
+                EnemyGenrator._EM._enemyGhost.ReleaseAsset();
+            }
+           
+        }
      }
      private void OnTriggerExit(Collider other)
      {
