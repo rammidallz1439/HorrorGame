@@ -284,6 +284,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  IsGenerated: 0
 --- !u!4 &365077935
 Transform:
   m_ObjectHideFlags: 0
@@ -495,7 +496,7 @@ GameObject:
   - component: {fileID: 719684028}
   m_Layer: 0
   m_Name: LightArea
-  m_TagString: Untagged
+  m_TagString: LightArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,7 +859,7 @@ GameObject:
   - component: {fileID: 2086995418}
   m_Layer: 0
   m_Name: LightArea
-  m_TagString: Untagged
+  m_TagString: LightArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

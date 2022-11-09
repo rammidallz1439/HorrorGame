@@ -9,15 +9,20 @@ public class EnemyGenrator : MonoBehaviour
 {
     public static EnemyGenrator _EM;
     [SerializeField] private AssetReference _enemyGhost;
+
+    private GameObject _player;
    public bool IsGenerated;
     private void Start()
     {
         _EM = this;
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     //loads Enemy using Addressables
     public void GenerateEnemy()
     {
+        Vector3 pos = new Vector3(UnityEngine.Random.Range(1, 3), 0, UnityEngine.Random.Range(1, 3));
+        
         if (LightArea._canAttackPlayer)
         {
             _enemyGhost.LoadAssetAsync<GameObject>().Completed += (asyncOperationHandle) =>
@@ -25,6 +30,7 @@ public class EnemyGenrator : MonoBehaviour
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
                     Instantiate(asyncOperationHandle.Result);
+                    asyncOperationHandle.Result.transform.position = pos;
                     IsGenerated = true;
                 }
                 else

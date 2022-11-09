@@ -23,6 +23,7 @@ public class LightArea : MonoBehaviour
          if (other.gameObject.tag=="Player")
          {
              _canAttackPlayer = false;
+            
          }
      }
      private void OnTriggerExit(Collider other)

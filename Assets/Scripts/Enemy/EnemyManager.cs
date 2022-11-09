@@ -31,4 +31,13 @@ public class EnemyManager : MonoBehaviour
         }
       
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "LightArea")
+        {
+            Destroy(this.gameObject,1f);
+            
+        }
+    }
 }
