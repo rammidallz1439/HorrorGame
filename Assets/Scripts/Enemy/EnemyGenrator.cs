@@ -26,7 +26,7 @@ public class EnemyGenrator : MonoBehaviour
     //loads Enemy using Addressables
     public void GenerateEnemy()
     {
-        Vector3 pos = new Vector3(UnityEngine.Random.Range(1, 2.5f), 0, UnityEngine.Random.Range(1, 2.5f));
+        Vector3 pos = new Vector3(UnityEngine.Random.Range(1, 4f), 0, UnityEngine.Random.Range(1, 4f));
         
         if (LightArea._canAttackPlayer)
         {

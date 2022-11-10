@@ -412,8 +412,9 @@ GameObject:
   m_Component:
   - component: {fileID: 365077935}
   - component: {fileID: 365077934}
+  - component: {fileID: 365077936}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -452,6 +453,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365077936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365077933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca645bc96d259b44a2ee7b881f43409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 0
+  healthBar: {fileID: 806508901}
+  reduceVelocity: 0.06
 --- !u!1 &367422144
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0.23921569}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -770,7 +786,6 @@ GameObject:
   m_Component:
   - component: {fileID: 806508900}
   - component: {fileID: 806508901}
-  - component: {fileID: 806508902}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -846,30 +861,10 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.31
+  m_Value: 0.373
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!95 &806508902
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806508899}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: daff43aada7be4244adb7ffa6e2790e9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &846702339 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -1234,6 +1229,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _radius: 5.8
   player: {fileID: 161360555}
+--- !u!1 &2091209190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5673922613351858977, guid: c47c3ded4365b434aa65c877b0818727,
+    type: 3}
+  m_PrefabInstance: {fileID: 5673922613193927051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2091209194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091209190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6798da99eacafa14fad1e169ea5112f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &67697300194727175
 MeshRenderer:
   m_ObjectHideFlags: 0
