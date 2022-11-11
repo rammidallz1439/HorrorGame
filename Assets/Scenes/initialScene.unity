@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyGhost:
-    m_AssetGUID: e5f24a2c28972524899b51215ad28729
+    m_AssetGUID: f1224cee71537f24fb311b2f9a85b91a
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

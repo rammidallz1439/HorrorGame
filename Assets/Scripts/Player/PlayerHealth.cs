@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float damageToGive=0.1f;
+    private float damageToGive=0.5f;
     private void OnTriggerEnter(Collider other)
     {
        

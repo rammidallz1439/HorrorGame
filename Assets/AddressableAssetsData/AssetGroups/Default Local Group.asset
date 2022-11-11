@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0d99b729e9e53c7408330d2772f0dc04
   m_SerializeEntries:
-  - m_GUID: e5f24a2c28972524899b51215ad28729
-    m_Address: Assets/Prefabs/HorrorGhost.prefab
+  - m_GUID: f1224cee71537f24fb311b2f9a85b91a
+    m_Address: Assets/Prefabs/Ghost.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
