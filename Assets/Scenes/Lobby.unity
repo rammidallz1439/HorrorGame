@@ -374,11 +374,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hearts:
-  - {fileID: 738777941}
-  - {fileID: 812703098}
-  - {fileID: 739970904}
-  - {fileID: 1646345489}
   - {fileID: 13515091}
+  - {fileID: 1646345489}
+  - {fileID: 739970904}
+  - {fileID: 812703098}
+  - {fileID: 738777941}
   lives: 5
 --- !u!1 &66852377
 GameObject:
