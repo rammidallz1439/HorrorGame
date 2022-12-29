@@ -183,8 +183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Always stay in the light to live
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e7def1eea9b75cd40b13540f196ee990, type: 2}
-  m_sharedMaterial: {fileID: -4062895359432155685, guid: e7def1eea9b75cd40b13540f196ee990,
+  m_fontAsset: {fileID: 11400000, guid: 2523b447d960be649ae666768bf70ac4, type: 2}
+  m_sharedMaterial: {fileID: 2161995382355202684, guid: 2523b447d960be649ae666768bf70ac4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 8
   m_fontSizeMax: 12
-  m_fontStyle: 33
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
