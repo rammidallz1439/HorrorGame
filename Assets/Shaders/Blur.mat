@@ -8,6 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blur
+<<<<<<< Updated upstream
   m_Shader: {fileID: -6465566751694194690, guid: 3efcf92c102c62f4c9f81c7f29781a74,
     type: 3}
   m_ValidKeywords:
@@ -38,11 +39,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_ShadowMasks:
+=======
+  m_Shader: {fileID: 4800000, guid: dbde21b07a8b5684d9e62dd24ff006a4, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+>>>>>>> Stashed changes
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+<<<<<<< Updated upstream
     - _AlphaClip: 0
     - _Alphavalue: 0.1
     - _Blend: 0
@@ -73,3 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
+=======
+    - PixelSnap: 0
+    - _BlurSize: 0.017
+    m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 0.38431373}
+  m_BuildTextureStacks: []
+>>>>>>> Stashed changes
